@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flappy Bird</title>
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #70c5ce;
+            overflow: hidden;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        canvas {
+            border: 2px solid black;
+        }
+
+        .menu {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: white;
+        }
+
+        .menu button {
+            background-color: #ffcc00;
+            border: none;
+            padding: 10px 20px;
+            margin: 10px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        .menu button:hover {
+            background-color: #ff9900;
+        }
+
+        .game-over {
+            display: none;
+            text-align: center;
+            color: white;
+        }
+
+        .game-over button {
+            background-color: #ffcc00;
+            border: none;
+            padding: 10px 20px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        .game-over button:hover {
+            background-color: #ff9900;
+        }
+
+        .score-board {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            color: white;
+            font-size: 24px;
+        }
+
+        .record-board {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            color: white;
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Menu -->
+    <div id="menu" class="menu">
+        <h1>Flappy Bird</h1>
+        <button onclick="startGame()">Iniciar</button>
+        <button onclick="showTutorial()">Tutorial</button>
+    </div>
+
+    <!-- Tutorial -->
+    <div id="tutorial" class="menu" style="display: none;">
+        <h1>Tutorial</h1>
+        <p>Use a tecla <strong>Space</strong> para fazer o pássaro subir.</p>
+        <p>Evite os tubos e tente sobreviver o máximo possível!</p>
+        <button onclick="showMenu()">Voltar ao Menu</button>
+    </div>
+
+    <!-- Game Over -->
+    <div id="game-over" class="game-over">
+        <h1>Game Over!</h1>
+        <p>Pontuação: <span id="score-final"></span></p>
+        <p>Recorde: <span id="high-score"></span></p>
+        <button onclick="retryGame()">Tentar Novamente</button>
+    </div>
+
+    <!-- Canvas do Jogo -->
+    <canvas id="gameCanvas" width="320" height="480"></canvas>
+
+    <script src="game.js"></script>
+</body>
+</html>
